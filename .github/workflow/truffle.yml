@@ -1,0 +1,25 @@
+name: Trufflehog Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trufflehog_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Trufflehog
+        run: pip install trufflehog
+
+      - name: Run Trufflehog
+        run: trufflehog --json . > trufflehog_results.json
+
+      - name: Upload Trufflehog results
+        uses: actions/upload-artifact@v2
+        with:
+          name: trufflehog-results
+          path: trufflehog_results.json
