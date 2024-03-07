@@ -1,4 +1,4 @@
-name: TruffleHog Scan
+name: TruffleHog Scan1
 
 on: [push]
 
@@ -15,7 +15,7 @@ jobs:
         docker run gesellix/trufflehog --json https://github.com/dishaaa14/DevSecOps-POC.git > trufflehog_results.json
 
     - name: Upload Trufflehog results
-        uses: actions/upload-artifact@v2
-        with:
-          name: trufflehog-results
-          path: trufflehog_results.json
+      uses: actions/upload-artifact@v2
+      with:
+        name: trufflehog-results
+        path: trufflehog_results.json
