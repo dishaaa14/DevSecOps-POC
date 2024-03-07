@@ -12,4 +12,4 @@ jobs:
 
     - name: Run TruffleHog Scan
       run: |
-        docker run trailofbits/trufflehog --json https://github.com/dishaaa14/DevSecOps-POC.git > trufflehog_results.json
+        docker run gesellix/trufflehog --json https://github.com/dishaaa14/DevSecOps-POC.git > trufflehog_results.json
